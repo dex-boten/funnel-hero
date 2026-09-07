@@ -6,16 +6,18 @@
 <title>FEX — All of your traffic, becomes more revenue</title>
 <style>
   :root{
-    --bg:#07070b;
+    --bg:#08080c;
     --ink:#f4f5f7;
     --muted:#9aa0ad;
-    /* single blue palette, varied by depth not hue */
+    /* blue base + warm accent so it isn't cold */
     --blue-1:#9cb8ff;
     --blue-2:#6f97ff;
     --blue-3:#3f6bff;
+    --warm:#ff9a6b;      /* warm coral accent */
+    --warm-2:#ffb98a;
     --human:#6f97ff;
     --agent:#9cb8ff;
-    --money:#6f97ff;
+    --money:#ffa877;
     --line:rgba(255,255,255,.08);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -31,9 +33,9 @@
   .bg-glow{
     position:fixed;inset:0;z-index:0;pointer-events:none;
     background:
-      radial-gradient(600px 400px at 22% 18%, rgba(122,162,255,.14), transparent 60%),
-      radial-gradient(600px 400px at 80% 22%, rgba(57,224,179,.12), transparent 60%),
-      radial-gradient(900px 600px at 50% 120%, rgba(95,224,138,.10), transparent 60%);
+      radial-gradient(620px 420px at 20% 16%, rgba(111,151,255,.16), transparent 60%),
+      radial-gradient(560px 380px at 82% 24%, rgba(255,154,107,.13), transparent 60%),
+      radial-gradient(900px 620px at 55% 118%, rgba(255,154,107,.10), transparent 60%);
   }
   .grid-overlay{
     position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.25;
@@ -82,7 +84,7 @@
     margin-bottom:26px;
   }
   h1 .accent{
-    background:linear-gradient(100deg,var(--blue-1) 0%,var(--blue-3) 100%);
+    background:linear-gradient(100deg,var(--blue-2) 0%,var(--warm) 118%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .h1-l1{display:block;opacity:0;transform:translateY(16px);animation:rise .8s .18s forwards}
@@ -97,22 +99,24 @@
     opacity:0;transform:translateY(16px);animation:rise .8s .58s forwards}
   .btn-primary{
     display:inline-flex;align-items:center;gap:11px;
-    background:linear-gradient(100deg,#eef3ff,#cbd9ff);
-    color:#06122e;font-weight:660;font-size:16px;
-    padding:16px 28px;border-radius:14px;text-decoration:none;
-    box-shadow:0 8px 30px rgba(111,151,255,.28);transition:.25s;
+    background:linear-gradient(100deg,#ff8f5e,#ffb488);
+    color:#22120a;font-weight:680;font-size:16px;
+    padding:16px 30px;border-radius:14px;text-decoration:none;
+    box-shadow:0 8px 34px rgba(255,138,90,.32);transition:.25s;
   }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(111,151,255,.42)}
-  .btn-primary .play{
-    width:26px;height:26px;border-radius:50%;
-    background:#06122e;display:grid;place-items:center;
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 44px rgba(255,138,90,.46)}
+  .btn-secondary{
+    display:inline-flex;align-items:center;gap:10px;
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+    color:var(--ink);font-weight:560;font-size:15px;
+    padding:15px 24px;border-radius:14px;text-decoration:none;transition:.25s;
+    backdrop-filter:blur(6px);
   }
-  .btn-primary .play svg{margin-left:2px}
-  .btn-ghost{color:var(--muted);font-size:15px;text-decoration:none;transition:.2s;
-    display:inline-flex;align-items:center;gap:7px}
-  .btn-ghost:hover{color:var(--ink)}
-  .btn-ghost .arrow{transition:.2s}
-  .btn-ghost:hover .arrow{transform:translateX(4px)}
+  .btn-secondary:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.26);transform:translateY(-2px)}
+  .btn-secondary .play{
+    width:22px;height:22px;border-radius:50%;
+    background:rgba(255,255,255,.14);display:grid;place-items:center;
+  }
 
   /* ---- VISUAL ---- */
   .visual{position:relative;height:520px;
@@ -137,7 +141,7 @@
   }
   .revenue-badge .amt{
     font-size:38px;font-weight:700;letter-spacing:-.02em;
-    background:linear-gradient(100deg,var(--blue-2),#eef3ff);
+    background:linear-gradient(100deg,var(--warm),#ffe6d3);
     -webkit-background-clip:text;background-clip:text;color:transparent;
     font-variant-numeric:tabular-nums;
   }
@@ -174,11 +178,12 @@
       Measured in dollars, not dashboards.
     </p>
     <div class="actions">
-      <a class="btn-primary" href="#">
-        <span class="play">
-          <svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M0 0.8v10.4L10 6 0 0.8Z" fill="#6f97ff"/></svg>
-        </span>
+      <a class="btn-primary" href="#">Talk to Sales</a>
+      <a class="btn-secondary" href="#">
         Watch Demo
+        <span class="play">
+          <svg width="9" height="11" viewBox="0 0 10 12" fill="none"><path d="M0 0.8v10.4L10 6 0 0.8Z" fill="#fff"/></svg>
+        </span>
       </a>
     </div>
   </div>
@@ -188,7 +193,7 @@
       <div class="stream-label label-human"><span class="chip"></span>Humans</div>
       <div class="stream-label label-agent"><span class="chip"></span>AI Agents</div>
 
-      <svg class="flow" viewBox="0 0 480 520" preserveAspectRatio="xMidYMid meet">
+      <svg class="flow" viewBox="0 0 480 560" preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id="gHuman" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#6f97ff" stop-opacity=".0"/>
@@ -200,49 +205,95 @@
           </linearGradient>
           <linearGradient id="gMoney" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stop-color="#6f97ff"/>
-            <stop offset="1" stop-color="#3f6bff"/>
+            <stop offset="1" stop-color="#ffa877"/>
           </linearGradient>
-          <filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
+          <linearGradient id="gFunnelFill" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#6f97ff" stop-opacity=".10"/>
+            <stop offset="1" stop-color="#ffa877" stop-opacity=".10"/>
+          </linearGradient>
+          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3.2" result="b"/>
+            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
         </defs>
 
-        <!-- funnel walls -->
-        <path d="M60 70 L230 300 L230 430 L250 430 L250 300 L420 70"
-              fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1.5"/>
-        <!-- funnel fill -->
-        <path d="M60 70 L420 70 L250 300 L250 430 L230 430 L230 300 Z"
-              fill="url(#gMoney)" opacity="0.05"/>
+        <!-- ===== SOURCE CHIPS (ad platforms) ===== -->
+        <g id="sources" font-family="inherit">
+          <!-- Meta -->
+          <g transform="translate(96,44)">
+            <rect x="-30" y="-15" width="60" height="30" rx="15" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.12)"/>
+            <path d="M-16 4 C-16 -6 -11 -9 -7 -9 C-2 -9 0 -3 3 2 C6 7 8 9 11 9 C15 9 16 5 16 1" fill="none" stroke="#6f97ff" stroke-width="2.4" stroke-linecap="round"/>
+            <text x="0" y="22" fill="#7d8493" font-size="8.5" text-anchor="middle" letter-spacing=".05em">META</text>
+          </g>
+          <!-- Google -->
+          <g transform="translate(240,32)">
+            <rect x="-30" y="-15" width="60" height="30" rx="15" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.12)"/>
+            <g transform="translate(0,0)">
+              <circle cx="0" cy="0" r="8" fill="none" stroke="#9cb8ff" stroke-width="2.6"/>
+              <rect x="0" y="-1.4" width="9" height="2.8" fill="#9cb8ff"/>
+            </g>
+            <text x="0" y="22" fill="#7d8493" font-size="8.5" text-anchor="middle" letter-spacing=".05em">GOOGLE</text>
+          </g>
+          <!-- TikTok -->
+          <g transform="translate(384,44)">
+            <rect x="-30" y="-15" width="60" height="30" rx="15" fill="rgba(255,255,255,.05)" stroke="rgba(255,255,255,.12)"/>
+            <path d="M2 -9 C2 -3 6 0 11 0 M2 -9 L2 6 C2 9 -1 10 -4 9 C-7 8 -7 4 -4 3 C-2 2.4 0 3 0 3" fill="none" stroke="#ffa877" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="0" y="22" fill="#7d8493" font-size="8.5" text-anchor="middle" letter-spacing=".05em">TIKTOK</text>
+          </g>
+        </g>
 
-        <!-- funnel step guides -->
-        <line x1="98" y1="120" x2="382" y2="120" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-        <line x1="140" y1="180" x2="340" y2="180" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-        <line x1="182" y1="240" x2="298" y2="240" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+        <!-- ===== FUNNEL ===== -->
+        <path d="M70 96 L228 320 L228 470 L252 470 L252 320 L410 96"
+              fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+        <path d="M70 96 L410 96 L252 320 L252 470 L228 470 L228 320 Z"
+              fill="url(#gFunnelFill)"/>
+
+        <!-- ===== STAGE MOCKUPS: Ad -> Landing -> Cart ===== -->
+        <!-- STAGE 1: AD -->
+        <g class="stage-card" transform="translate(240,150)">
+          <rect x="-52" y="-26" width="104" height="52" rx="7" fill="#0f1320" stroke="rgba(111,151,255,.5)" stroke-width="1.2"/>
+          <rect x="-44" y="-18" width="40" height="36" rx="3" fill="rgba(111,151,255,.18)"/>
+          <circle cx="-24" cy="0" r="6" fill="rgba(111,151,255,.5)"/>
+          <rect x="4" y="-16" width="40" height="5" rx="2.5" fill="rgba(255,255,255,.35)"/>
+          <rect x="4" y="-6" width="32" height="4" rx="2" fill="rgba(255,255,255,.18)"/>
+          <rect x="4" y="6" width="26" height="9" rx="3" fill="#6f97ff"/>
+          <text x="0" y="-38" fill="#8b93a5" font-size="9" text-anchor="middle" letter-spacing=".08em">AD</text>
+        </g>
+        <!-- STAGE 2: LANDING PAGE -->
+        <g class="stage-card" transform="translate(240,250)">
+          <rect x="-42" y="-24" width="84" height="48" rx="6" fill="#0f1320" stroke="rgba(156,184,255,.5)" stroke-width="1.2"/>
+          <rect x="-42" y="-24" width="84" height="11" rx="6" fill="rgba(156,184,255,.14)"/>
+          <rect x="-34" y="-6" width="48" height="5" rx="2.5" fill="rgba(255,255,255,.32)"/>
+          <rect x="-34" y="3" width="36" height="4" rx="2" fill="rgba(255,255,255,.16)"/>
+          <rect x="-34" y="12" width="22" height="7" rx="3" fill="#9cb8ff"/>
+          <rect x="18" y="-6" width="18" height="25" rx="3" fill="rgba(156,184,255,.2)"/>
+          <text x="0" y="-32" fill="#8b93a5" font-size="9" text-anchor="middle" letter-spacing=".08em">LANDING</text>
+        </g>
+        <!-- STAGE 3: CART / CHECKOUT -->
+        <g class="stage-card" transform="translate(240,395)">
+          <rect x="-30" y="-22" width="60" height="44" rx="6" fill="#0f1320" stroke="rgba(255,168,119,.6)" stroke-width="1.2"/>
+          <path d="M-18 -10 h22 l-3 12 h-16 z" fill="none" stroke="#ffa877" stroke-width="1.8" stroke-linejoin="round"/>
+          <circle cx="-13" cy="6" r="2" fill="#ffa877"/><circle cx="-1" cy="6" r="2" fill="#ffa877"/>
+          <rect x="10" y="-10" width="14" height="4" rx="2" fill="rgba(255,255,255,.3)"/>
+          <rect x="10" y="-2" width="14" height="9" rx="3" fill="#ffa877"/>
+          <text x="0" y="-30" fill="#8b93a5" font-size="9" text-anchor="middle" letter-spacing=".08em">CHECKOUT</text>
+        </g>
 
         <!-- leak points that seal shut -->
-        <circle class="leak" cx="150" cy="185" r="4" fill="#ff5c72"/>
-        <circle class="leak" cx="315" cy="130" r="4" fill="#ff5c72"/>
-        <circle class="leak" cx="205" cy="250" r="4" fill="#ff5c72"/>
+        <circle class="leak" cx="170" cy="200" r="4" fill="#ff5c72"/>
+        <circle class="leak" cx="312" cy="165" r="4" fill="#ff5c72"/>
+        <circle class="leak" cx="200" cy="290" r="4" fill="#ff5c72"/>
 
-        <!-- stream paths (invisible, used for motion) -->
-        <path id="pathHuman" d="M110 50 C150 140, 215 210, 240 300 L240 430" fill="none" stroke="none"/>
-        <path id="pathAgent" d="M370 50 C330 140, 265 210, 240 300 L240 430" fill="none" stroke="none"/>
+        <!-- stream paths (invisible, motion guides) -->
+        <path id="pathHuman" d="M110 72 C150 170, 215 240, 240 320 L240 470" fill="none" stroke="none"/>
+        <path id="pathAgent" d="M370 72 C330 170, 265 240, 240 320 L240 470" fill="none" stroke="none"/>
 
         <!-- faint visible stream traces -->
-        <path d="M110 50 C150 140, 215 210, 240 300" fill="none" stroke="url(#gHuman)" stroke-width="2" opacity=".5"/>
-        <path d="M370 50 C330 140, 265 210, 240 300" fill="none" stroke="url(#gAgent)" stroke-width="2" opacity=".5"/>
+        <path d="M110 72 C150 170, 215 240, 240 320" fill="none" stroke="url(#gHuman)" stroke-width="1.6" opacity=".4"/>
+        <path d="M370 72 C330 170, 265 240, 240 320" fill="none" stroke="url(#gAgent)" stroke-width="1.6" opacity=".4"/>
 
-        <!-- money exit stream -->
-        <path d="M240 300 L240 430" fill="none" stroke="url(#gMoney)" stroke-width="4" opacity=".85"/>
-
-        <!-- rising revenue curve -->
-        <path id="revCurve" d="M255 425 C300 410, 340 360, 370 300 C395 250, 410 190, 430 120"
-              fill="none" stroke="url(#gMoney)" stroke-width="3"
-              stroke-linecap="round"
-              stroke-dasharray="600" stroke-dashoffset="600"
-              filter="url(#soft)" opacity=".9"/>
-        <path id="revCurve2" d="M255 425 C300 410, 340 360, 370 300 C395 250, 410 190, 430 120"
-              fill="none" stroke="#dbe6ff" stroke-width="1.4"
-              stroke-linecap="round"
-              stroke-dasharray="600" stroke-dashoffset="600"/>
+        <!-- money exit stream (straight down out of checkout) -->
+        <path d="M240 470 L240 500" fill="none" stroke="url(#gMoney)" stroke-width="4" opacity=".9" filter="url(#glow)"/>
 
         <g id="particles"></g>
       </svg>
@@ -285,7 +336,7 @@
       // fade in, brighten toward money at the bottom
       const op = t<0.1? t*8 : (t>0.8? (1-t)*4+0.4 : 1);
       p.setAttribute("opacity", Math.min(1,Math.max(0,op)));
-      if(t>0.62){ p.setAttribute("fill", "#3f6bff"); }
+      if(t>0.7){ p.setAttribute("fill", "#ffa877"); }
       requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
@@ -294,20 +345,11 @@
   let alt=true;
   setInterval(()=>{ spawn(alt?"h":"a"); if(Math.random()>.5) spawn(alt?"a":"h"); alt=!alt; }, 160);
 
-  // draw revenue curve
-  setTimeout(()=>{
-    const c=document.getElementById("revCurve");
-    const c2=document.getElementById("revCurve2");
-    c.style.transition="stroke-dashoffset 1.8s cubic-bezier(.2,.7,.2,1)";
-    c2.style.transition="stroke-dashoffset 2s .1s cubic-bezier(.2,.7,.2,1)";
-    c.style.strokeDashoffset="0"; c2.style.strokeDashoffset="0";
-  }, 700);
-
-  // leak points seal shut (shrink + green flash)
+  // leak points seal shut (shrink + warm flash)
   document.querySelectorAll(".leak").forEach((el,i)=>{
     setTimeout(()=>{
       el.style.transition="r .5s, fill .5s, opacity .6s";
-      el.setAttribute("fill","#6f97ff");
+      el.setAttribute("fill","#ffa877");
       setTimeout(()=>{ el.setAttribute("r","0"); el.style.opacity="0"; },380);
     }, 1400 + i*420);
   });
