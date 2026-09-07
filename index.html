@@ -154,10 +154,25 @@
   @keyframes ping{0%{box-shadow:0 0 0 0 rgba(95,224,138,.6)}70%{box-shadow:0 0 0 9px rgba(95,224,138,0)}100%{box-shadow:0 0 0 0 rgba(95,224,138,0)}}
 
   @media(max-width:920px){
-    .hero{grid-template-columns:1fr;gap:20px;padding-bottom:60px}
-    .visual{height:400px;order:2}
-    nav{padding:22px 24px}
-    .hero{padding-left:24px;padding-right:24px}
+    .hero{grid-template-columns:1fr;gap:8px;padding:24px 24px 56px;min-height:auto;text-align:left}
+    .copy{order:1;max-width:100%}
+    .visual{order:2;height:auto;aspect-ratio:1/1;max-height:440px;margin-top:6px}
+    nav{padding:20px 24px}
+    h1{font-size:clamp(38px,10vw,56px)}
+    .sub{font-size:16px;max-width:100%}
+    .actions{gap:12px}
+    .stream-label .sub{display:none}
+  }
+  @media(max-width:480px){
+    nav{padding:18px 18px}
+    .hero{padding:18px 18px 44px}
+    h1{font-size:clamp(32px,9vw,44px);margin-bottom:18px}
+    .sub{font-size:15px;line-height:1.55;margin-bottom:28px}
+    .actions{width:100%}
+    .btn-primary,.btn-secondary{flex:1;justify-content:center;padding:15px 18px}
+    .visual{max-height:380px}
+    .stream-label{font-size:10px}
+    .revenue-badge .amt{font-size:32px}
   }
 </style>
 </head>
