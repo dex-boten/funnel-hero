@@ -3,15 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Funnel Optimizer — All of your traffic, becomes more revenue</title>
+<title>FEX — All of your traffic, becomes more revenue</title>
 <style>
   :root{
     --bg:#07070b;
     --ink:#f4f5f7;
     --muted:#9aa0ad;
-    --human:#7aa2ff;
-    --agent:#39e0b3;
-    --money:#5fe08a;
+    /* single blue palette, varied by depth not hue */
+    --blue-1:#9cb8ff;
+    --blue-2:#6f97ff;
+    --blue-3:#3f6bff;
+    --human:#6f97ff;
+    --agent:#9cb8ff;
+    --money:#6f97ff;
     --line:rgba(255,255,255,.08);
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -44,10 +48,10 @@
     padding:26px 40px;max-width:1280px;margin:0 auto;
   }
   .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:.2px}
-  .brand .dot{width:11px;height:11px;border-radius:50%;
-    background:conic-gradient(from 0deg,var(--human),var(--agent),var(--money),var(--human));
-    box-shadow:0 0 16px rgba(95,224,138,.6)}
-  .brand span{font-size:16px}
+  .brand .dot{width:13px;height:13px;border-radius:50%;
+    background:conic-gradient(from 210deg,var(--blue-1),var(--blue-3),#1e3aaa,var(--blue-2),var(--blue-1));
+    box-shadow:0 0 18px rgba(111,151,255,.55)}
+  .brand span{font-size:18px;letter-spacing:.14em;font-weight:680}
   .nav-cta{
     font-size:14px;color:var(--muted);border:1px solid var(--line);
     padding:9px 16px;border-radius:999px;text-decoration:none;transition:.2s;
@@ -73,12 +77,12 @@
   .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--money);
     box-shadow:0 0 0 0 rgba(95,224,138,.6);animation:ping 2.2s infinite}
   h1{
-    font-size:clamp(40px,5.4vw,68px);
-    line-height:1.03;letter-spacing:-.02em;font-weight:640;
-    margin-bottom:24px;
+    font-size:clamp(46px,6.4vw,82px);
+    line-height:1.02;letter-spacing:-.025em;font-weight:660;
+    margin-bottom:26px;
   }
   h1 .accent{
-    background:linear-gradient(100deg,var(--human) 0%,var(--agent) 48%,var(--money) 100%);
+    background:linear-gradient(100deg,var(--blue-1) 0%,var(--blue-3) 100%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .h1-l1{display:block;opacity:0;transform:translateY(16px);animation:rise .8s .18s forwards}
@@ -93,15 +97,15 @@
     opacity:0;transform:translateY(16px);animation:rise .8s .58s forwards}
   .btn-primary{
     display:inline-flex;align-items:center;gap:11px;
-    background:linear-gradient(100deg,#eafff4,#c9f7de);
-    color:#05130c;font-weight:640;font-size:16px;
-    padding:15px 26px;border-radius:14px;text-decoration:none;
-    box-shadow:0 8px 30px rgba(95,224,138,.28);transition:.25s;
+    background:linear-gradient(100deg,#eef3ff,#cbd9ff);
+    color:#06122e;font-weight:660;font-size:16px;
+    padding:16px 28px;border-radius:14px;text-decoration:none;
+    box-shadow:0 8px 30px rgba(111,151,255,.28);transition:.25s;
   }
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(95,224,138,.42)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(111,151,255,.42)}
   .btn-primary .play{
     width:26px;height:26px;border-radius:50%;
-    background:#05130c;display:grid;place-items:center;
+    background:#06122e;display:grid;place-items:center;
   }
   .btn-primary .play svg{margin-left:2px}
   .btn-ghost{color:var(--muted);font-size:15px;text-decoration:none;transition:.2s;
@@ -121,9 +125,9 @@
   }
   .stream-label .chip{width:9px;height:9px;border-radius:2px}
   .label-human{left:8%}
-  .label-human .chip{background:var(--human);box-shadow:0 0 12px var(--human)}
+  .label-human .chip{background:var(--blue-2);box-shadow:0 0 12px var(--blue-2)}
   .label-agent{right:8%}
-  .label-agent .chip{background:var(--agent);box-shadow:0 0 12px var(--agent)}
+  .label-agent .chip{background:var(--blue-1);box-shadow:0 0 12px var(--blue-1)}
 
   svg.flow{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
 
@@ -132,8 +136,8 @@
     text-align:center;
   }
   .revenue-badge .amt{
-    font-size:34px;font-weight:700;letter-spacing:-.02em;
-    background:linear-gradient(100deg,var(--money),#eafff4);
+    font-size:38px;font-weight:700;letter-spacing:-.02em;
+    background:linear-gradient(100deg,var(--blue-2),#eef3ff);
     -webkit-background-clip:text;background-clip:text;color:transparent;
     font-variant-numeric:tabular-nums;
   }
@@ -156,13 +160,11 @@
 <div class="grid-overlay"></div>
 
 <nav>
-  <div class="brand"><div class="dot"></div><span>Funnel Optimizer</span></div>
-  <a class="nav-cta" href="#">Get in touch</a>
+  <div class="brand"><div class="dot"></div><span>FEX</span></div>
 </nav>
 
 <section class="hero">
   <div class="copy">
-    <div class="eyebrow"><span class="pulse"></span>Conversion, for humans &amp; AI agents</div>
     <h1>
       <span class="h1-l1">All of your traffic,</span>
       <span class="h1-l2">becomes <span class="accent">more revenue.</span></span>
@@ -174,11 +176,10 @@
     <div class="actions">
       <a class="btn-primary" href="#">
         <span class="play">
-          <svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M0 0.8v10.4L10 6 0 0.8Z" fill="#5fe08a"/></svg>
+          <svg width="10" height="12" viewBox="0 0 10 12" fill="none"><path d="M0 0.8v10.4L10 6 0 0.8Z" fill="#6f97ff"/></svg>
         </span>
         Watch Demo
       </a>
-      <a class="btn-ghost" href="#">See how it works <span class="arrow">→</span></a>
     </div>
   </div>
 
@@ -190,16 +191,16 @@
       <svg class="flow" viewBox="0 0 480 520" preserveAspectRatio="xMidYMid meet">
         <defs>
           <linearGradient id="gHuman" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#7aa2ff" stop-opacity=".0"/>
-            <stop offset="1" stop-color="#7aa2ff" stop-opacity=".9"/>
+            <stop offset="0" stop-color="#6f97ff" stop-opacity=".0"/>
+            <stop offset="1" stop-color="#6f97ff" stop-opacity=".9"/>
           </linearGradient>
           <linearGradient id="gAgent" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#39e0b3" stop-opacity=".0"/>
-            <stop offset="1" stop-color="#39e0b3" stop-opacity=".9"/>
+            <stop offset="0" stop-color="#9cb8ff" stop-opacity=".0"/>
+            <stop offset="1" stop-color="#9cb8ff" stop-opacity=".9"/>
           </linearGradient>
           <linearGradient id="gMoney" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#39e0b3"/>
-            <stop offset="1" stop-color="#5fe08a"/>
+            <stop offset="0" stop-color="#6f97ff"/>
+            <stop offset="1" stop-color="#3f6bff"/>
           </linearGradient>
           <filter id="soft"><feGaussianBlur stdDeviation="3"/></filter>
         </defs>
@@ -239,7 +240,7 @@
               stroke-dasharray="600" stroke-dashoffset="600"
               filter="url(#soft)" opacity=".9"/>
         <path id="revCurve2" d="M255 425 C300 410, 340 360, 370 300 C395 250, 410 190, 430 120"
-              fill="none" stroke="#eafff4" stroke-width="1.4"
+              fill="none" stroke="#dbe6ff" stroke-width="1.4"
               stroke-linecap="round"
               stroke-dasharray="600" stroke-dashoffset="600"/>
 
@@ -267,7 +268,7 @@
     const p=document.createElementNS(NS,"circle");
     const isHuman=kind==="h";
     p.setAttribute("r", isHuman? 3 : 2.4);
-    p.setAttribute("fill", isHuman? "#7aa2ff" : "#39e0b3");
+    p.setAttribute("fill", isHuman? "#6f97ff" : "#9cb8ff");
     p.setAttribute("opacity","0");
     if(!isHuman){p.setAttribute("filter","");}
     g.appendChild(p);
@@ -284,7 +285,7 @@
       // fade in, brighten toward money at the bottom
       const op = t<0.1? t*8 : (t>0.8? (1-t)*4+0.4 : 1);
       p.setAttribute("opacity", Math.min(1,Math.max(0,op)));
-      if(t>0.62){ p.setAttribute("fill", "#5fe08a"); }
+      if(t>0.62){ p.setAttribute("fill", "#3f6bff"); }
       requestAnimationFrame(step);
     }
     requestAnimationFrame(step);
@@ -306,7 +307,7 @@
   document.querySelectorAll(".leak").forEach((el,i)=>{
     setTimeout(()=>{
       el.style.transition="r .5s, fill .5s, opacity .6s";
-      el.setAttribute("fill","#5fe08a");
+      el.setAttribute("fill","#6f97ff");
       setTimeout(()=>{ el.setAttribute("r","0"); el.style.opacity="0"; },380);
     }, 1400 + i*420);
   });
